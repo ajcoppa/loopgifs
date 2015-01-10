@@ -1,7 +1,17 @@
 {
-  "jspm": {
-    "dependencies": {
-      "jsonp": "npm:jsonp@^0.1.0"
-    }
+  "dependencies": {
+    "browserify": "^8.1.0",
+    "jsonp": "^0.1.0",
+    "uglify-js": "^2.4.16"
+  },
+  "devDependencies": {
+    "6to5ify": "^3.1.2",
+    "live-server": "^0.6.3",
+    "watchify": "^2.2.1"
+  },
+  "repository": "https://github.com/ajcoppa/loopgifs",
+  "scripts": {
+    "build": "browserify lib/main.js -t 6to5ify | uglifyjs -mc > bundle.js",
+    "watch": "watchify lib/main.js -t 6to5ify -o bundle.js -dv & live-server"
   }
 }
